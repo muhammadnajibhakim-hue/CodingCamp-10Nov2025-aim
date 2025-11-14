@@ -1,0 +1,367 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(51, 65, 85, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 40px;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+h1 {
+    color: #e2e8f0;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.input-section {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+    background: #1e293b;
+    border: 2px solid #334155;
+    border-radius: 12px;
+    padding: 14px 20px;
+    color: #e2e8f0;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+input[type="text"]::placeholder {
+    color: #64748b;
+}
+
+input[type="date"] {
+    background: #1e293b;
+    border: 2px solid #334155;
+    border-radius: 12px;
+    padding: 14px 20px;
+    color: #e2e8f0;
+    font-size: 16px;
+    min-width: 180px;
+    transition: all 0.3s ease;
+}
+
+input[type="date"]:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.btn {
+    border: none;
+    border-radius: 12px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-add {
+    background: #8b5cf6;
+    color: white;
+    font-size: 24px;
+    min-width: 56px;
+}
+
+.btn-add:hover {
+    background: #7c3aed;
+}
+
+.action-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-filter {
+    background: #334155;
+    color: #e2e8f0;
+}
+
+.btn-filter:hover {
+    background: #475569;
+}
+
+.btn-delete-all {
+    background: #a78bfa;
+    color: white;
+}
+
+.btn-delete-all:hover {
+    background: #8b5cf6;
+}
+
+.filter-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(30, 41, 59, 0.5);
+    border-radius: 12px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: #475569;
+    color: #e2e8f0;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    background: #64748b;
+}
+
+.filter-btn.active {
+    background: #8b5cf6;
+}
+
+.todo-table {
+    background: #1e293b;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #334155;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr 1.5fr;
+    gap: 10px;
+    padding: 20px;
+    background: #0f172a;
+    color: #94a3b8;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.table-body {
+    min-height: 200px;
+}
+
+.no-task {
+    text-align: center;
+    color: #64748b;
+    padding: 60px 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.todo-item {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr 1.5fr;
+    gap: 10px;
+    padding: 20px;
+    border-top: 1px solid #334155;
+    color: #e2e8f0;
+    align-items: center;
+    transition: all 0.3s ease;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.todo-item:hover {
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.todo-item.completed .task-name {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.task-name {
+    font-size: 15px;
+    word-break: break-word;
+}
+
+.task-date {
+    font-size: 14px;
+    color: #94a3b8;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.status-pending {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+    border: 1px solid #fbbf24;
+}
+
+.status-completed {
+    background: rgba(34, 197, 94, 0.2);
+    color: #22c55e;
+    border: 1px solid #22c55e;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.action-btn {
+    background: transparent;
+    border: 2px solid #475569;
+    color: #e2e8f0;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-complete {
+    border-color: #22c55e;
+    color: #22c55e;
+}
+
+.btn-complete:hover {
+    background: #22c55e;
+    color: white;
+}
+
+.btn-delete {
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+.btn-delete:hover {
+    background: #ef4444;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 25px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .input-section {
+        flex-direction: column;
+    }
+    input[type="text"],
+    input[type="date"] {
+        width: 100%;
+        min-width: 100%;
+    }
+    .btn-add {
+        width: 100%;
+    }
+    .table-header {
+        display: none;
+    }
+    .todo-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 16px;
+    }
+    .task-name {
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .task-date {
+        font-size: 13px;
+    }
+    .action-buttons {
+        justify-content: flex-start;
+        width: 100%;
+    }
+    .action-btn {
+        flex: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 1.75rem;
+    }
+    .action-section {
+        flex-direction: column;
+    }
+    .btn-filter,
+    .btn-delete-all {
+        width: 100%;
+    }
+}
